@@ -16,9 +16,9 @@ let request = axios.create({//request==axios
 const loading = {
     loadingInstance: null,  // Loading实例
     open: function () { // 打开加载
-        console.log('加载中', this.loadingInstance)
+        // console.log('加载中', this.loadingInstance)
         if (this.loadingInstance === null) { // 创建单例, 防止切换路由重复加载
-            console.log('创建加载实例..')
+            // console.log('创建加载实例..')
             this.loadingInstance = Loading.service({
                 text: '拼命加载中',
                 target: '.main', // 效果显示区域
@@ -50,7 +50,7 @@ request.interceptors.response.use(response => {
     return response
 }, error => {
     loading.close() // 关闭加载效果
-    console.log('response error', error.response.status);//404-找不到页面；500；505
+    // console.log('response error', error.response.status);//404-找不到页面；500；505
     let status = error.response.status;//获取状态码
     //对异常做统一处理(所有的ajax都有这个效果)
     if (status == 404) {
